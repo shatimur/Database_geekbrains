@@ -21,3 +21,13 @@ CREATE TABLE music(
     FOREIGN KEY (media_type_id) REFERENCES media_types(id)
     );
 
+DROP TABLE IF EXISTS video;
+CREATE TABLE video(
+	id SERIAL PRIMARY KEY,
+    name varchar(50) NOT NULL,
+    owner ENUM ('user_id', 'free'),
+    author varchar(50),
+    media_type_id BIGINT UNSIGNED NOT NULL,
+    `length` TIME,
+    FOREIGN KEY (media_type_id) REFERENCES media_types(id)
+    );
